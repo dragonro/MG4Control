@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        startForegroundService(Intent(this, MG4ControlService::class.java))
+        if (!BuildConfig.EMULATOR_MODE) {
+            startForegroundService(Intent(this, MG4ControlService::class.java))
+        }
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment

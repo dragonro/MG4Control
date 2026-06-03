@@ -13,6 +13,7 @@ import android.content.IntentFilter
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import com.mg4.control.BuildConfig
 import com.mg4.control.R
 import com.mg4.control.bluetooth.BluetoothProfileManager
 import com.mg4.control.debug.AppLogger
@@ -78,6 +79,10 @@ class MG4ControlService : Service() {
         super.onCreate()
         AppLogger.i(TAG, "onCreate")
         startForeground(NOTIF_ID, buildNotification())
+        if (BuildConfig.EMULATOR_MODE) {
+            AppLogger.i(TAG, "Emulator mode: vehicle service hooks disabled")
+            return
+        }
         MG4Hardware.init(applicationContext)
         registerHardkeyReceiver()
         registerBtAclReceiver()        // [BT-PROFILES]
@@ -99,7 +104,9 @@ class MG4ControlService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         AppLogger.i(TAG, "onStartCommand")
-        scheduleDefaultProfileOnce()
+        if (!BuildConfig.EMULATOR_MODE) {
+            scheduleDefaultProfileOnce()
+        }
         return START_STICKY
     }
 

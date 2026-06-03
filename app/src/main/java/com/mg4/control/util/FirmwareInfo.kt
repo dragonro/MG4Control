@@ -1,6 +1,7 @@
 package com.mg4.control.util
 
 import android.content.Context
+import com.mg4.control.BuildConfig
 
 /**
  * Détecte la génération de firmware à partir de ro.build.mt2712.version.
@@ -30,6 +31,12 @@ object FirmwareInfo {
      * Lit le choix forcé éventuel depuis les SharedPreferences et l'applique au cache.
      */
     fun initWithContext(context: Context) {
+        if (BuildConfig.EMULATOR_MODE) {
+            cached = Gen.SWI133
+            detectedString = "EMULATOR"
+            return
+        }
+
         val forced = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
             .getString(PREF_FORCED_GEN, null) ?: return
         cached = runCatching { Gen.valueOf(forced) }.getOrDefault(Gen.UNKNOWN)
