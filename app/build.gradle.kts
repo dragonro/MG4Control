@@ -11,8 +11,8 @@ android {
         applicationId = "com.mg4.control"
         minSdk = 28
         targetSdk = 34
-        versionCode = 14
-        versionName = "2.6.2"
+        versionCode = 15
+        versionName = "2.6.3"
     }
 
     flavorDimensions += "target"

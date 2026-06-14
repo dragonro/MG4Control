@@ -37,7 +37,7 @@ object UpdateDialogManager {
 
     private const val TAG = "UpdateDialogManager"
     private const val GITHUB_RELEASES_URL =
-        "https://github.com/SliDeeN/MG4Control/releases/latest"
+        "https://github.com/dragonro/MG4Control/releases/latest"
 
     fun show(activity: AppCompatActivity, info: UpdateInfo) {
         val view = LayoutInflater.from(activity).inflate(R.layout.dialog_update, null)

@@ -45,7 +45,7 @@ import kotlinx.coroutines.withContext
 
 class SettingsFragment : Fragment() {
 
-    private val githubUrl = "https://github.com/SliDeeN/MG4Control"
+    private val githubUrl = "https://github.com/dragonro/MG4Control"
     private val gitlabUrl = "https://gitlab.com/SliDeeN/mg4control"
 
     override fun onCreateView(
