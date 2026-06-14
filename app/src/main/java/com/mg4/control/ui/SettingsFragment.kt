@@ -46,7 +46,6 @@ import kotlinx.coroutines.withContext
 class SettingsFragment : Fragment() {
 
     private val githubUrl = "https://github.com/dragonro/MG4Control"
-    private val gitlabUrl = "https://gitlab.com/SliDeeN/mg4control"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -450,18 +449,9 @@ class SettingsFragment : Fragment() {
         val ivQrGithub = dialogView.findViewById<ImageView>(R.id.iv_qr_code_github)
         generateQrBitmap(githubUrl, 400)?.let { ivQrGithub.setImageBitmap(it) }
 
-        // QR Code GitLab
-        val ivQrGitlab = dialogView.findViewById<ImageView>(R.id.iv_qr_code_gitlab)
-        generateQrBitmap(gitlabUrl, 400)?.let { ivQrGitlab.setImageBitmap(it) }
-
         // Lien GitHub cliquable
         dialogView.findViewById<TextView>(R.id.tv_github_link).setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(githubUrl)))
-        }
-
-        // Lien GitLab cliquable
-        dialogView.findViewById<TextView>(R.id.tv_gitlab_link).setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(gitlabUrl)))
         }
 
         // Création du dialog sans chrome Android (fond transparent = layout seul visible)
