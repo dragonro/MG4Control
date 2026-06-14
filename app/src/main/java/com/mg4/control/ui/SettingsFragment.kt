@@ -56,6 +56,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val prefs = requireContext().getSharedPreferences("mg4_settings", Context.MODE_PRIVATE)
+        val shortcutPrefs = requireContext().getSharedPreferences("mg4_shortcuts", Context.MODE_PRIVATE)
         val accentColor  = requireContext().getColor(R.color.dash_accent)
         val accentDim    = requireContext().getColor(R.color.dash_accent_dim)
         val inactiveColor = requireContext().getColor(R.color.dash_btn)
@@ -173,11 +174,16 @@ class SettingsFragment : Fragment() {
         val btnSimRight   = view.findViewById<MaterialButton>(R.id.btn_sim_right_star)
         val originalUpdateText = getString(R.string.btn_check_update)
 
+        fun updateDebugButtons() {
+            val debugVisible = MainActivity.diagnosticUnlocked
+            val visibility = if (debugVisible) View.VISIBLE else View.GONE
+            btnDiagnostic.visibility = visibility
+            btnSimLeft.visibility = visibility
+            btnSimRight.visibility = visibility
+        }
+
         // Bouton Diagnostic + simulateurs STAR débloqués via 5 clics sur le logo (cf. MainActivity)
-        val debugVisible = MainActivity.diagnosticUnlocked
-        btnDiagnostic.visibility = if (debugVisible) View.VISIBLE else View.GONE
-        btnSimLeft.visibility = if (debugVisible) View.VISIBLE else View.GONE
-        btnSimRight.visibility = if (debugVisible) View.VISIBLE else View.GONE
+        updateDebugButtons()
 
         btnUpdate.setOnClickListener {
             btnUpdate.isEnabled = false
@@ -247,20 +253,22 @@ class SettingsFragment : Fragment() {
         }
 
         btnSimLeft.setOnClickListener {
-            ShortcutExecutor.executeConfiguredShortcut(requireContext(), prefs, "btn1_single")
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn1_single")
         }
         btnSimLeft.setOnLongClickListener {
-            ShortcutExecutor.executeConfiguredShortcut(requireContext(), prefs, "btn1_long")
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn1_long")
             true
         }
 
         btnSimRight.setOnClickListener {
-            ShortcutExecutor.executeConfiguredShortcut(requireContext(), prefs, "btn2_single")
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn2_single")
         }
         btnSimRight.setOnLongClickListener {
-            ShortcutExecutor.executeConfiguredShortcut(requireContext(), prefs, "btn2_long")
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn2_long")
             true
         }
+
+        view.post { updateDebugButtons() }
 
         // ── Bouton Infos ─────────────────────────────────────────────────────
         view.findViewById<MaterialButton>(R.id.btn_infos).setOnClickListener {

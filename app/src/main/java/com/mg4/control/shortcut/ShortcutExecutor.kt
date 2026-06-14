@@ -3,9 +3,16 @@ package com.mg4.control.shortcut
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.app.AlertDialog
+import android.view.ContextThemeWrapper
+import android.view.LayoutInflater
+import android.view.View
 import android.os.Handler
 import android.os.Looper
+import android.widget.LinearLayout
+import com.mg4.control.BuildConfig
 import com.mg4.control.MainActivity
+import com.mg4.control.R
 import com.mg4.control.model.RegenLevel
 import com.mg4.control.profile.ProfileApplier
 import com.mg4.control.profile.ProfileManager
@@ -30,7 +37,11 @@ object ShortcutExecutor {
 
         if (action == ShortcutAction.PROFILE_PICKER) {
             Handler(Looper.getMainLooper()).post {
-                ProfilePickerOverlay.toggle(context)
+                if (BuildConfig.EMULATOR_MODE) {
+                    showEmulatorProfilePicker(context)
+                } else {
+                    ProfilePickerOverlay.toggle(context)
+                }
             }
             return
         }
@@ -104,5 +115,63 @@ object ShortcutExecutor {
                 else -> Unit
             }
         }
+    }
+
+    private fun showEmulatorProfilePicker(context: Context) {
+        val profiles = ProfileManager(context.applicationContext).getAll()
+        if (profiles.isEmpty()) return
+
+        val themed = ContextThemeWrapper(context, R.style.Theme_MG4Control)
+        val content = LayoutInflater.from(themed).inflate(R.layout.overlay_profile_picker, null)
+        val container = content.findViewById<LinearLayout>(R.id.overlay_profiles_container)
+
+        val dialog = AlertDialog.Builder(themed, com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog)
+            .setView(content)
+            .create()
+
+        content.findViewById<View>(R.id.overlay_btn_close)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        content.findViewById<View>(R.id.overlay_backdrop)?.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        val dm = context.resources.displayMetrics
+        fun dp(value: Float) = (value * dm.density).toInt()
+
+        profiles.chunked(2).forEach { row ->
+            val rowLayout = LinearLayout(themed).apply {
+                orientation = LinearLayout.HORIZONTAL
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).also { it.bottomMargin = dp(10f) }
+            }
+
+            row.forEachIndexed { index, profile ->
+                val button = com.google.android.material.button.MaterialButton(themed).apply {
+                    text = profile.name
+                    textSize = 19f
+                    isAllCaps = false
+                    setOnClickListener {
+                        CoroutineScope(Dispatchers.IO).launch {
+                            ProfileApplier.apply(profile)
+                        }
+                        dialog.dismiss()
+                    }
+                }
+                rowLayout.addView(button, LinearLayout.LayoutParams(0, dp(90f), 1f).also {
+                    if (index == 0 && row.size == 2) it.marginEnd = dp(10f)
+                })
+            }
+
+            if (row.size == 1) {
+                rowLayout.addView(View(themed), LinearLayout.LayoutParams(0, dp(90f), 1f))
+            }
+
+            container.addView(rowLayout)
+        }
+
+        dialog.show()
     }
 }
