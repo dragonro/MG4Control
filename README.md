@@ -1,12 +1,8 @@
 ![image info](mg4control_github_banner.svg)
+![DualBytes](dualbytes.png)
 
 > Application Android Automotive pour le contrôle avancé des paramètres de conduite du MG4 électrique.
 > Android Automotive app for advanced driving settings control on the MG4 electric vehicle.
-
-> Vous appréciez MG4Control et souhaitez soutenir son développement ?  
-You enjoy MG4Control and want to support its development ?  
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue?logo=paypal)](https://www.paypal.com/paypalme/pfauquembergue)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/slideen)
 ---
 
 <details open>
@@ -28,7 +24,7 @@ You enjoy MG4Control and want to support its development ?
 
 ## Présentation
 
-**MG4Control** est une application système conçue pour Android Automotive OS, destinée à fonctionner sur les écrans de bord des véhicules MG4 équipés du SoC **SAIC MT2712**. Elle offre un accès direct et unifié aux réglages de conduite qui ne sont pas accessibles — ou difficilement accessibles — via l'interface constructeur.
+**MG4Control** est une application système conçue pour Android Automotive OS, destinée à fonctionner sur les écrans de bord des véhicules MG4 équipés du SoC **SAIC MT2712**. Cette version est maintenue par **DualBytes**. Elle offre un accès direct et unifié aux réglages de conduite qui ne sont pas accessibles — ou difficilement accessibles — via l'interface constructeur.
 
 L'application communique avec le véhicule via le SDK propriétaire SAIC, en accédant aux services Android Automotive (`CarPropertyManager`, `CarHvacManager`) ainsi qu'aux services de bas niveau exposés par le firmware du véhicule.
 
@@ -344,9 +340,16 @@ Disposition en **2 rangées** (ratio 2:1) optimisée pour 1280×480 :
 
 ---
 
+## Release Notes
+
+- This DualBytes release is based on the SliDeeN version.
+- The floating profile selector can now be closed by pressing the same star button that opened it.
+
+---
+
 ## Compilation et installation
 
-Vous pouvez directement télécharger la dernière version de MG4Control via les releases : https://github.com/SliDeeN/MG4Control/releases
+Vous pouvez directement télécharger la dernière version de MG4Control via les releases : https://github.com/dragonro/MG4Control/releases
 Il ne vous faut qu'une clé USB et l'accès aux paramètres AAOS afin d'installer l'APK.
 
 
@@ -715,7 +718,7 @@ A second press on PROFILS or RÉGLAGES closes the view and returns to the dashbo
 
 ## Build & Installation
 
-You can download the latest version of MG4Control directly from the releases page: https://github.com/SliDeeN/MG4Control/releases
+You can download the latest version of MG4Control directly from the releases page: https://github.com/dragonro/MG4Control/releases
 All you need is a USB drive and access to the AAOS settings to install the APK.
 
 
@@ -767,12 +770,12 @@ adb shell pm install -r --system /sdcard/app-debug.apk
 
 ## Credits
 
-Made with ❤ by **SliDeeN** and **Claude IA**
+Made with ❤ by **DualBytes** and **Claude IA**
 
 Basé sur l'application **DriveHub Dort** développée par **Merth4n** & **hotboy_ist**
 
 Remerciements spéciaux à **confor1max** pour les tests approfondis du firmware SWI68 🙏
 
-[![GitHub](https://img.shields.io/badge/GitHub-SliDeeN%2FMG4Control-181717?logo=github)](https://github.com/SliDeeN/MG4Control)
+[![GitHub](https://img.shields.io/badge/GitHub-dragonro%2FMG4Control-181717?logo=github)](https://github.com/dragonro/MG4Control)
 
 </details>
