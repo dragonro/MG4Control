@@ -178,10 +178,9 @@
     <string name="info_version_label">Versión</string>
     <string name="info_firmware_label">Firmware</string>
     <string name="info_github_link">github.com/dragonro/MG4Control</string>
-    <string name="info_gitlab_link">gitlab.com/SliDeeN/mg4control</string>
-    <string name="info_made_with_love">Made with ❤ by SliDeeN and Claude IA</string>
+    <string name="info_made_with_love">Creado por DualBytes basado en la versión de SliDeeN</string>
     <string name="info_special_thanks">Gracias a confor1max por las pruebas SWI68 🙏</string>
-    <string name="info_based_on">Basado en DriveHub Dort por Merth4n &amp; hotboy_ist</string>
+    <string name="info_based_on">Basado en DriverHub Dort por Merth4n &amp; hotboy_ist</string>
     <string name="info_close">Cerrar</string>
 
     <!-- Dashboard — encabezados de tarjetas -->

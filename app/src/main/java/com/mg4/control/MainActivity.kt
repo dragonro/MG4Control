@@ -77,6 +77,8 @@ class MainActivity : AppCompatActivity() {
                 diagnosticUnlocked = true
                 // Révèle immédiatement le bouton si l'onglet Réglages est déjà affiché
                 findViewById<View>(R.id.btn_diagnostic)?.visibility = View.VISIBLE
+                findViewById<View>(R.id.btn_sim_left_star)?.visibility = View.VISIBLE
+                findViewById<View>(R.id.btn_sim_right_star)?.visibility = View.VISIBLE
                 Toast.makeText(this, getString(R.string.diagnostic_unlocked), Toast.LENGTH_SHORT).show()
             }
         }

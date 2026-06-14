@@ -161,6 +161,8 @@
 
     <!-- Diagnostic -->
     <string name="btn_diagnostic">Diagnostic</string>
+    <string name="btn_sim_left_star">★ Left</string>
+    <string name="btn_sim_right_star">★ Right</string>
     <string name="diagnostic_unlocked">Diagnostics unlocked</string>
     <string name="diag_title">Diagnostic</string>
     <string name="diag_copy">Copy</string>
@@ -178,10 +180,9 @@
     <string name="info_version_label">Version</string>
     <string name="info_firmware_label">Firmware</string>
     <string name="info_github_link">github.com/dragonro/MG4Control</string>
-    <string name="info_gitlab_link">gitlab.com/SliDeeN/mg4control</string>
-    <string name="info_made_with_love">Made with ❤ by SliDeeN and Claude IA</string>
+    <string name="info_made_with_love">Created by DualBytes based on the SliDeeN version</string>
     <string name="info_special_thanks">Thanks to confor1max for SWI68 testing 🙏</string>
-    <string name="info_based_on">Based on DriveHub Dort by Merth4n &amp; hotboy_ist</string>
+    <string name="info_based_on">Based on DriverHub Dort by Merth4n &amp; hotboy_ist</string>
     <string name="info_close">Close</string>
 
     <!-- Dashboard — card headers -->

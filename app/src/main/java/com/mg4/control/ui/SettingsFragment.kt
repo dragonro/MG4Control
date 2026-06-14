@@ -34,6 +34,7 @@ import com.mg4.control.R
 import com.mg4.control.debug.AppLogger
 import com.mg4.control.debug.CrashLogger
 import com.mg4.control.hardware.MG4Hardware
+import com.mg4.control.shortcut.ShortcutExecutor
 import com.mg4.control.update.UpdateChecker
 import com.mg4.control.update.UpdateDialogManager
 import com.mg4.control.util.FirmwareHelper
@@ -46,7 +47,6 @@ import kotlinx.coroutines.withContext
 class SettingsFragment : Fragment() {
 
     private val githubUrl = "https://github.com/dragonro/MG4Control"
-    private val gitlabUrl = "https://gitlab.com/SliDeeN/mg4control"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -56,6 +56,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val prefs = requireContext().getSharedPreferences("mg4_settings", Context.MODE_PRIVATE)
+        val shortcutPrefs = requireContext().getSharedPreferences("mg4_shortcuts", Context.MODE_PRIVATE)
         val accentColor  = requireContext().getColor(R.color.dash_accent)
         val accentDim    = requireContext().getColor(R.color.dash_accent_dim)
         val inactiveColor = requireContext().getColor(R.color.dash_btn)
@@ -169,10 +170,20 @@ class SettingsFragment : Fragment() {
         // ── Bouton Vérifier mise à jour ──────────────────────────────────────
         val btnUpdate     = view.findViewById<MaterialButton>(R.id.btn_check_update)
         val btnDiagnostic = view.findViewById<MaterialButton>(R.id.btn_diagnostic)
+        val btnSimLeft    = view.findViewById<MaterialButton>(R.id.btn_sim_left_star)
+        val btnSimRight   = view.findViewById<MaterialButton>(R.id.btn_sim_right_star)
         val originalUpdateText = getString(R.string.btn_check_update)
 
-        // Bouton Diagnostic débloqué via 5 clics sur le logo (cf. MainActivity)
-        btnDiagnostic.visibility = if (MainActivity.diagnosticUnlocked) View.VISIBLE else View.GONE
+        fun updateDebugButtons() {
+            val debugVisible = MainActivity.diagnosticUnlocked
+            val visibility = if (debugVisible) View.VISIBLE else View.GONE
+            btnDiagnostic.visibility = visibility
+            btnSimLeft.visibility = visibility
+            btnSimRight.visibility = visibility
+        }
+
+        // Bouton Diagnostic + simulateurs STAR débloqués via 5 clics sur le logo (cf. MainActivity)
+        updateDebugButtons()
 
         btnUpdate.setOnClickListener {
             btnUpdate.isEnabled = false
@@ -240,6 +251,24 @@ class SettingsFragment : Fragment() {
         btnDiagnostic.setOnClickListener {
             showDiagnosticDialog()
         }
+
+        btnSimLeft.setOnClickListener {
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn1_single")
+        }
+        btnSimLeft.setOnLongClickListener {
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn1_long")
+            true
+        }
+
+        btnSimRight.setOnClickListener {
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn2_single")
+        }
+        btnSimRight.setOnLongClickListener {
+            ShortcutExecutor.executeConfiguredShortcut(requireContext(), shortcutPrefs, "btn2_long")
+            true
+        }
+
+        view.post { updateDebugButtons() }
 
         // ── Bouton Infos ─────────────────────────────────────────────────────
         view.findViewById<MaterialButton>(R.id.btn_infos).setOnClickListener {
@@ -450,18 +479,9 @@ class SettingsFragment : Fragment() {
         val ivQrGithub = dialogView.findViewById<ImageView>(R.id.iv_qr_code_github)
         generateQrBitmap(githubUrl, 400)?.let { ivQrGithub.setImageBitmap(it) }
 
-        // QR Code GitLab
-        val ivQrGitlab = dialogView.findViewById<ImageView>(R.id.iv_qr_code_gitlab)
-        generateQrBitmap(gitlabUrl, 400)?.let { ivQrGitlab.setImageBitmap(it) }
-
         // Lien GitHub cliquable
         dialogView.findViewById<TextView>(R.id.tv_github_link).setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(githubUrl)))
-        }
-
-        // Lien GitLab cliquable
-        dialogView.findViewById<TextView>(R.id.tv_gitlab_link).setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(gitlabUrl)))
         }
 
         // Création du dialog sans chrome Android (fond transparent = layout seul visible)

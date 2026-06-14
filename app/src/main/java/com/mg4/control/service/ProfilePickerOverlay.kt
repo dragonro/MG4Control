@@ -46,6 +46,7 @@ object ProfilePickerOverlay {
     @Volatile private var overlayView: View? = null
     private var dismissRunnable: Runnable? = null
     private var countdownRunnable: Runnable? = null
+    private var pendingAutoDismiss: (() -> Unit)? = null
 
     // ── API publique ─────────────────────────────────────────────────────────
 
@@ -73,6 +74,21 @@ object ProfilePickerOverlay {
     fun dismiss(context: Context) {
         handler.post { dismissOnMainThread(context, fireAutoDismiss = false) }
     }
+
+    /**
+     * Bascule l'état de l'overlay sur le thread principal.
+     */
+    fun toggle(context: Context) {
+        handler.post {
+            if (isShowing()) {
+                dismissOnMainThread(context, fireAutoDismiss = false)
+            } else {
+                showOnMainThread(context, profiles = null, onAutoDismiss = null)
+            }
+        }
+    }
+
+    fun isShowing(): Boolean = overlayView != null
 
     // ── Implémentation (main thread) ─────────────────────────────────────────
 
@@ -207,8 +223,9 @@ object ProfilePickerOverlay {
         val dr = Runnable {
             AppLogger.i(TAG, "Overlay — timeout, fallback onAutoDismiss")
             dismissOnMainThread(context, fireAutoDismiss = false)
-            onAutoDismiss?.invoke()
+            pendingAutoDismiss?.invoke()
         }
+        pendingAutoDismiss = onAutoDismiss
         dismissRunnable = dr
         handler.postDelayed(dr, AUTO_DISMISS_MS)
 
@@ -281,6 +298,7 @@ object ProfilePickerOverlay {
         countdownRunnable?.let { handler.removeCallbacks(it) }
         dismissRunnable   = null
         countdownRunnable = null
+        pendingAutoDismiss = null
 
         val v = overlayView ?: return
         overlayView = null

@@ -182,7 +182,7 @@ class MG4ControlService : Service() {
         // PROFILE_PICKER : overlay flottant au-dessus du launcher — aucun toggle d'état
         if (action == ShortcutAction.PROFILE_PICKER) {
             Handler(Looper.getMainLooper()).post {
-                ProfilePickerOverlay.show(this@MG4ControlService)
+                ProfilePickerOverlay.toggle(this@MG4ControlService)
             }
             return
         }
