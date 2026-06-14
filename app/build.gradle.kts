@@ -26,7 +26,6 @@ android {
         create("emulator") {
             dimension = "target"
             applicationIdSuffix = ".emulator"
-            versionNameSuffix = "-emulator"
             buildConfigField("Boolean", "EMULATOR_MODE", "true")
         }
     }
