@@ -37,6 +37,7 @@ drawable bg_chip_inactive
 drawable bg_fw_indicator
 drawable bg_section_rounded
 drawable dot_indicator
+drawable gradient_logo_bg
 drawable logo_topbar
 id adasFragment
 id adas_group_swi133
@@ -62,6 +63,8 @@ id btn_adas_limiteur
 id btn_adas_off
 id btn_adas_off_d
 id btn_adas_swi68_acc_d
+id btn_adas_swi68_auto_d
+id btn_adas_swi68_lim_d
 id btn_adas_swi68_off_d
 id btn_adas_swi68_tja_d
 id btn_add_profile
@@ -169,6 +172,8 @@ id btn_sr_3_d
 id btn_steer_off_d
 id btn_steer_on_d
 id btn_swi68_acc
+id btn_swi68_auto
+id btn_swi68_lim
 id btn_swi68_off
 id btn_swi68_tja
 id btn_theme_auto
@@ -210,6 +215,12 @@ id iv_update_qr
 id nav_graph
 id nav_host_fragment
 id overlay_backdrop
+id overlay_bri_day
+id overlay_bri_mid
+id overlay_bri_night
+id overlay_bri_slider
+id overlay_bri_value
+id overlay_brightness_section
 id overlay_btn_close
 id overlay_card
 id overlay_countdown
@@ -224,6 +235,7 @@ id row_sound_warning_d
 id row_speed_tone_d
 id sc_adas_a_0
 id sc_adas_a_1
+id sc_adas_a_2
 id sc_adas_a_3
 id sc_adas_a_4
 id sc_adas_a_s68_acc
@@ -231,6 +243,7 @@ id sc_adas_a_s68_off
 id sc_adas_a_s68_tja
 id sc_adas_b_0
 id sc_adas_b_1
+id sc_adas_b_2
 id sc_adas_b_3
 id sc_adas_b_4
 id sc_adas_b_s68_acc
@@ -382,6 +395,7 @@ string diag_copied
 string diag_copy
 string diag_loading
 string diag_title
+string diagnostic_unlocked
 string drive_custom
 string drive_eco
 string drive_energy_saving
@@ -426,6 +440,10 @@ string nav_drive
 string nav_profiles
 string nav_settings
 string nav_shortcuts
+string overlay_brightness_day
+string overlay_brightness_mid
+string overlay_brightness_night
+string overlay_brightness_title
 string overlay_countdown
 string overlay_profile_title
 string profile_add

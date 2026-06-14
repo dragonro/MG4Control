@@ -37,7 +37,11 @@
     <string name="shortcuts_action_tsr">Panneaux (TSR)</string>
     <string name="shortcuts_action_apply_profile">Lancer un profil</string>
     <string name="shortcuts_action_profile_picker">Sélecteur de profil (popup)</string>
-    <string name="overlay_profile_title">Profils de conduite</string>
+        <string name="overlay_brightness_title">Luminosité</string>
+    <string name="overlay_brightness_night">Nuit</string>
+    <string name="overlay_brightness_mid">Moyen</string>
+    <string name="overlay_brightness_day">Jour</string>
+<string name="overlay_profile_title">Profils de conduite</string>
     <string name="overlay_countdown">Fermeture dans %1$ds</string>
     <string name="shortcuts_profile_prefix">Lancer le profil</string>
     <string name="shortcuts_pick_profile_title">Choisir un profil</string>
@@ -122,8 +126,8 @@
     <string name="adas_section_drive">Assistance à la conduite</string>
     <string name="adas_off">Off</string>
     <string name="adas_limiteur">Limiteur</string>
-    <string name="adas_limiteur_short">Lim.</string>
-    <string name="adas_auto">Auto</string>
+    <string name="adas_limiteur_short">Lim. Manuel</string>
+    <string name="adas_auto">Lim. Auto</string>
     <string name="adas_acc">ACC</string>
     <string name="adas_ica">ICA</string>
     <!-- ADAS SWI68 -->
@@ -159,6 +163,7 @@
 
     <!-- Diagnostic -->
     <string name="btn_diagnostic">Diagnostic</string>
+    <string name="diagnostic_unlocked">Diagnostic débloqué</string>
     <string name="diag_title">Diagnostic</string>
     <string name="diag_copy">Copier</string>
     <string name="diag_copied">Copié !</string>
