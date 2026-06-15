@@ -1,5 +1,4 @@
 ![image info](mg4control_github_banner.svg)
-![DualBytes](dualbytes.png)
 
 > Application Android Automotive pour le contrôle avancé des paramètres de conduite du MG4 électrique.
 > Android Automotive app for advanced driving settings control on the MG4 electric vehicle.
@@ -769,6 +768,7 @@ adb shell pm install -r --system /sdcard/app-debug.apk
 ---
 
 ## Credits
+![DualBytes](dualbytes.png)
 
 This is a DualBytes release based on the SliDeeN version.
 
