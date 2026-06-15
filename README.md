@@ -342,7 +342,7 @@ Disposition en **2 rangées** (ratio 2:1) optimisée pour 1280×480 :
 
 ## Release Notes
 
-- This DualBytes release is based on the SliDeeN version.
+- This is a DualBytes release based on the SliDeeN version.
 - The floating profile selector can now be closed by pressing the same star button that opened it.
 
 ---
