@@ -20,7 +20,7 @@ object UpdateChecker {
     private const val TAG = "MG4_UPDATE"
 
     private const val GITHUB_API_URL =
-        "https://api.github.com/repos/SliDeeN/MG4Control/releases/latest"
+        "https://api.github.com/repos/dragonro/MG4Control/releases/latest"
 
     private const val GITLAB_API_URL =
         "https://gitlab.com/api/v4/projects/SliDeeN%2Fmg4control/releases/permalink/latest"

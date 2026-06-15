@@ -161,6 +161,8 @@
 
     <!-- Diagnostic -->
     <string name="btn_diagnostic">Diagnostic</string>
+    <string name="btn_sim_left_star">★ Left</string>
+    <string name="btn_sim_right_star">★ Right</string>
     <string name="diagnostic_unlocked">Diagnostics unlocked</string>
     <string name="diag_title">Diagnostic</string>
     <string name="diag_copy">Copy</string>
@@ -177,11 +179,10 @@
     <string name="info_app_label">Application</string>
     <string name="info_version_label">Version</string>
     <string name="info_firmware_label">Firmware</string>
-    <string name="info_github_link">github.com/SliDeeN/MG4Control</string>
-    <string name="info_gitlab_link">gitlab.com/SliDeeN/mg4control</string>
-    <string name="info_made_with_love">Made with ❤ by SliDeeN and Claude IA</string>
+    <string name="info_github_link">github.com/dragonro/MG4Control</string>
+    <string name="info_made_with_love">Created by DualBytes based on the SliDeeN version</string>
     <string name="info_special_thanks">Thanks to confor1max for SWI68 testing 🙏</string>
-    <string name="info_based_on">Based on DriveHub Dort by Merth4n &amp; hotboy_ist</string>
+    <string name="info_based_on">Based on DriverHub Dort by Merth4n &amp; hotboy_ist</string>
     <string name="info_close">Close</string>
 
     <!-- Dashboard — card headers -->
@@ -214,7 +215,7 @@
     <string name="update_manual_instructions">1. Scan the QR code or open the link\n2. Download the MG4Control.apk file\n3. Copy it to a FAT32 USB drive\n4. Plug the USB drive into your MG4\n5. Open the File Manager\n6. Select the APK file and install it</string>
     <string name="update_downloaded_title">APK downloaded ✓</string>
     <string name="update_downloaded_instructions">The Downloads folder should have opened automatically.\n\nTap MG4Control-*.apk to install.\n\nIf the folder did not open, go to the File Manager and navigate to Downloads.</string>
-    <string name="update_gh_releases_link">github.com/SliDeeN/MG4Control/releases</string>
+    <string name="update_gh_releases_link">github.com/dragonro/MG4Control/releases</string>
     <string name="update_skip_btn">Don\'t remind me again</string>
     <plurals name="update_skipped_hint">
         <item quantity="one">%d update not installed since your version</item>

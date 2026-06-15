@@ -11,8 +11,23 @@ android {
         applicationId = "com.mg4.control"
         minSdk = 28
         targetSdk = 34
-        versionCode = 14
-        versionName = "2.6.2"
+        versionCode = 15
+        versionName = "2.6.3"
+    }
+
+    flavorDimensions += "target"
+
+    productFlavors {
+        create("car") {
+            dimension = "target"
+            buildConfigField("Boolean", "EMULATOR_MODE", "false")
+        }
+
+        create("emulator") {
+            dimension = "target"
+            applicationIdSuffix = ".emulator"
+            buildConfigField("Boolean", "EMULATOR_MODE", "true")
+        }
     }
 
     buildTypes {
@@ -33,6 +48,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

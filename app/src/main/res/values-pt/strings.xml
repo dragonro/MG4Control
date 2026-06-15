@@ -177,11 +177,10 @@
     <string name="info_app_label">Aplicação</string>
     <string name="info_version_label">Versão</string>
     <string name="info_firmware_label">Firmware</string>
-    <string name="info_github_link">github.com/SliDeeN/MG4Control</string>
-    <string name="info_gitlab_link">gitlab.com/SliDeeN/mg4control</string>
-    <string name="info_made_with_love">Made with ❤ by SliDeeN and Claude IA</string>
+    <string name="info_github_link">github.com/dragonro/MG4Control</string>
+    <string name="info_made_with_love">Criado por DualBytes com base na versão SliDeeN</string>
     <string name="info_special_thanks">Obrigado a confor1max pelos testes SWI68 🙏</string>
-    <string name="info_based_on">Baseado em DriveHub Dort por Merth4n &amp; hotboy_ist</string>
+    <string name="info_based_on">Baseado em DriverHub Dort por Merth4n &amp; hotboy_ist</string>
     <string name="info_close">Fechar</string>
 
     <!-- Dashboard — cabeçalhos de cartões -->
@@ -214,7 +213,7 @@
     <string name="update_manual_instructions">1. Leia o código QR ou abra o link\n2. Transfira o ficheiro MG4Control.apk\n3. Copie-o para uma pen USB FAT32\n4. Insira a pen no seu MG4\n5. Abra o Gestor de Ficheiros\n6. Selecione o ficheiro APK e instale-o</string>
     <string name="update_downloaded_title">APK transferido ✓</string>
     <string name="update_downloaded_instructions">A pasta Transferências foi aberta automaticamente.\n\nToque em MG4Control-*.apk para instalar.\n\nSe a pasta não se abriu, abra o Gestor de Ficheiros e navegue até Transferências.</string>
-    <string name="update_gh_releases_link">github.com/SliDeeN/MG4Control/releases</string>
+    <string name="update_gh_releases_link">github.com/dragonro/MG4Control/releases</string>
     <string name="update_skip_btn">Não me lembrar mais</string>
     <plurals name="update_skipped_hint">
         <item quantity="one">%d atualização não instalada desde a sua versão</item>

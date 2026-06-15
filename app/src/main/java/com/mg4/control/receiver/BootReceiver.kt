@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
+import com.mg4.control.BuildConfig
 import com.mg4.control.debug.AppLogger
 import com.mg4.control.service.MG4ControlService
 
@@ -21,6 +22,8 @@ class BootReceiver : BroadcastReceiver() {
     }
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (BuildConfig.EMULATOR_MODE) return
+
         val action = intent.action ?: return
         if (action !in BOOT_ACTIONS) return
 

@@ -177,11 +177,10 @@
     <string name="info_app_label">Anwendung</string>
     <string name="info_version_label">Version</string>
     <string name="info_firmware_label">Firmware</string>
-    <string name="info_github_link">github.com/SliDeeN/MG4Control</string>
-    <string name="info_gitlab_link">gitlab.com/SliDeeN/mg4control</string>
-    <string name="info_made_with_love">Made with ❤ by SliDeeN and Claude IA</string>
+    <string name="info_github_link">github.com/dragonro/MG4Control</string>
+    <string name="info_made_with_love">Erstellt von DualBytes basierend auf der SliDeeN-Version</string>
     <string name="info_special_thanks">Danke an confor1max für SWI68-Tests 🙏</string>
-    <string name="info_based_on">Basierend auf DriveHub Dort von Merth4n &amp; hotboy_ist</string>
+    <string name="info_based_on">Basierend auf DriverHub Dort von Merth4n &amp; hotboy_ist</string>
     <string name="info_close">Schließen</string>
 
     <!-- Dashboard — Kartenüberschriften -->
@@ -214,7 +213,7 @@
     <string name="update_manual_instructions">1. QR-Code scannen oder Link öffnen\n2. MG4Control.apk herunterladen\n3. Auf einen FAT32-USB-Stick kopieren\n4. USB-Stick in Ihr MG4 stecken\n5. Dateimanager öffnen\n6. APK-Datei auswählen und installieren</string>
     <string name="update_downloaded_title">APK heruntergeladen ✓</string>
     <string name="update_downloaded_instructions">Der Download-Ordner wurde automatisch geöffnet.\n\nTippen Sie auf MG4Control-*.apk, um die Installation zu starten.\n\nFalls der Ordner nicht geöffnet wurde, öffnen Sie den Dateimanager und navigieren Sie zu Downloads.</string>
-    <string name="update_gh_releases_link">github.com/SliDeeN/MG4Control/releases</string>
+    <string name="update_gh_releases_link">github.com/dragonro/MG4Control/releases</string>
     <string name="update_skip_btn">Nicht mehr erinnern</string>
     <plurals name="update_skipped_hint">
         <item quantity="one">%d Update seit Ihrer Version nicht installiert</item>
