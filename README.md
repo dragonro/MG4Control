@@ -770,7 +770,7 @@ adb shell pm install -r --system /sdcard/app-debug.apk
 
 ## Credits
 
-Made with ❤ by **DualBytes** and **Claude IA**
+This is a DualBytes release based on the SliDeeN version.
 
 Basé sur l'application **DriveHub Dort** développée par **Merth4n** & **hotboy_ist**
 
